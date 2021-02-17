@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pds2/pages/Reset_password.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'SignUp.dart';
 import 'package:pds2/pages/profile.dart';
@@ -151,7 +152,7 @@ class _LogInState extends State<LogIn> {
                                             }
                                             return null;
                                           },
-                                          onSaved: (input)=>_email=input,
+                                          onSaved: (input)=>_email=input.trim(),
                                           decoration: InputDecoration(
                                             contentPadding: EdgeInsets.only(top: 20,bottom: 5),
                                             labelText: 'Email',
@@ -194,7 +195,8 @@ class _LogInState extends State<LogIn> {
                                         alignment: Alignment.bottomLeft,
                                         margin: EdgeInsets.only(left: 100),
                                         child: TextButton(
-                                            onPressed: (){},
+                                            onPressed: ()=>
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) => ResetScreen(),fullscreenDialog: true)),
                                             child: Text(
                                                 'Forgot password?',
                                               style: TextStyle(
